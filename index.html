@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daffodil Admission Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== Top Utility Bar ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="#">Students</a>
+        <a href="#">Parents</a>
+        <a href="#">Teachers</a>
+        <a href="#">Alumni</a>
+        <a href="#">Administration</a>
+        <a href="#">Help Desk</a>
+        <a href="#">Sitemap</a>
+      </div>
+
+      <div class="topbar-right">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle theme">☾</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Main Header ===== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+
+      <!-- Brand -->
+      <a class="brand" href="index.html">
+
+  <img class="brand-logo"
+       src="assets/images/diu.png"
+       alt="Daffodil Logo">
+
+  <div class="brand-text">
+    <div class="brand-title">
+      Daffodil Admission Assistant
+    </div>
+
+    <div class="brand-subtitle">
+      Smart Support Portal
+    </div>
+  </div>
+
+</a>
+
+
+      <!-- Nav -->
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li class="dropdown" id="ddAdmissions">
+            <a href="#" class="nav-link" data-dropdown="admissions">Admissions <span class="caret">▾</span></a>
+            <div class="dropdown-panel" aria-label="Admissions menu">
+              <a href="admission.html">Admission Process</a>
+              <a href="eligibility.html">Eligibility Checker</a>
+              <a href="programs.html">Programs & Fees</a>
+              <a href="assistant.html">Ask Assistant</a>
+            </div>
+          </li>
+
+          <li><a class="nav-link" href="programs.html">Academics</a></li>
+          <li><a class="nav-link" href="#">Campus</a></li>
+          <li><a class="nav-link" href="#">Research</a></li>
+          <li><a class="nav-link" href="#">International</a></li>
+          <li><a class="nav-link" href="contact.html">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="actions">
+
+  <a href="login.html" class="btn btn-outline">
+    Login
+  </a>
+
+  <a href="signup.html" class="btn btn-primary">
+    Sign Up
+  </a>
+
+</div>
+
+
+    <!-- Search Bar -->
+    <div class="searchbar" id="searchbar">
+      <div class="container searchbar-inner">
+        <input id="searchInput" type="text" placeholder="Search programs, eligibility, fees..." />
+        <button class="btn btn-dark" id="searchClose" type="button">Close</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="Daffodil campus banner"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-inner">
+      <h1>Beyond Classrooms,<br>We Build Futures.</h1>
+      <p>
+        Get complete admission guidance, eligibility checking, program details,
+        and instant support — all in one place.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="assistant.html">Ask Assistant</a>
+        <a class="btn btn-ghost" href="eligibility.html">Check Eligibility</a>
+      </div>
+
+      <div class="hero-strip">
+        <div class="hero-strip-text">
+          Shaping futures with a global vision — ranked among the world’s best,
+          proudly <span>#1 in Bangladesh</span>.
+        </div>
+        <a class="btn btn-outline" href="admission.html">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Quick Section ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        <article class="card">
+          <h3>Admission Guide</h3>
+          <p>Step-by-step process, required documents, and timeline.</p>
+          <a class="link" href="admission.html">View details →</a>
+        </article>
+
+        <article class="card">
+          <h3>Programs & Fees</h3>
+          <p>Faculty-wise program list, duration, credits & tuition info.</p>
+          <a class="link" href="programs.html">Explore programs →</a>
+        </article>
+
+        <article class="card">
+          <h3>Eligibility Checker</h3>
+          <p>Enter SSC/HSC GPA and instantly see eligibility result.</p>
+          <a class="link" href="eligibility.html">Check now →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">Daffodil Admission Assistant</div>
+        <div class="footer-sub">A student-first admission support portal.</div>
+      </div>
+      <div class="footer-right">© 2026 • Developed by Jabid</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
