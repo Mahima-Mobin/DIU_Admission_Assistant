@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Programs & Fees • Daffodil Admission Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="programs.css" />
+</head>
+<body>
+
+  <!-- ===== Top Utility Bar ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle theme">☾</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+
+      <a class="brand" href="index.html" aria-label="Home">
+       
+        <img class="brand-logo" src="assets/diu-logo.png" alt="Daffodil Logo">
+        <div class="brand-text">
+          <div class="brand-title">Daffodil Admission Assistant</div>
+          <div class="brand-subtitle">Programs & Fees</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link active" href="programs.html">Programs</a></li>
+          <li><a class="nav-link" href="eligibility.html">Eligibility</a></li>
+          <li><a class="nav-link" href="admission.html">Admission</a></li>
+          <li><a class="nav-link" href="assistant.html">Assistant</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions" id="authButtons">
+       
+      </div>
+
+    </div>
+
+    <div class="searchbar" id="searchbar">
+      <div class="container searchbar-inner">
+        <input id="globalSearch" type="text" placeholder="Search programs, faculty, keywords..." />
+        <button class="btn btn-dark" id="searchClose" type="button">Close</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Page Hero ===== -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div>
+        <h1>Explore Programs & Fees</h1>
+        <p>
+          Search DIU programs by faculty, level, duration, and tuition range.
+          Compare quickly and open details in one click.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn btn-outline" id="openSearch" type="button">🔍 Quick Search</button>
+        <button class="btn btn-primary" id="resetBtn" type="button">Reset Filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Controls ===== -->
+  <main class="container">
+    <section class="panel">
+      <div class="panel-head">
+        <div class="panel-title">Filters</div>
+        <div class="panel-sub" id="resultMeta">Loading…</div>
+      </div>
+
+      <div class="controls">
+        <div class="control">
+          <label for="q">Search</label>
+          <input id="q" type="text" placeholder="e.g. CSE, BBA, Engineering, Data…" autocomplete="off" />
+        </div>
+
+        <div class="control">
+          <label for="faculty">Faculty</label>
+          <select id="faculty">
+            <option value="all">All</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="level">Level</label>
+          <select id="level">
+            <option value="all">All</option>
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="Graduate">Graduate</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="sort">Sort</label>
+          <select id="sort">
+            <option value="recommended">Recommended</option>
+            <option value="fee_low">Tuition (Low → High)</option>
+            <option value="fee_high">Tuition (High → Low)</option>
+            <option value="duration_low">Duration (Low → High)</option>
+            <option value="name_az">Name (A → Z)</option>
+          </select>
+        </div>
+
+        <div class="control range">
+          <div class="range-top">
+            <label for="feeMax">Max Tuition</label>
+            <span class="pill" id="feeLabel">Any</span>
+          </div>
+          <input id="feeMax" type="range" min="0" max="782,250" step="10000" value="782,250" />
+          <div class="range-hint">Slide to limit programs by total tuition estimate.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Results ===== -->
+    <section class="results">
+      <div class="results-head">
+        <div class="results-title">Programs</div>
+        <div class="results-tools">
+          <button class="icon-btn" id="viewGrid" type="button" aria-label="Grid view">☷</button>
+          <button class="icon-btn" id="viewList" type="button" aria-label="List view">≡</button>
+        </div>
+      </div>
+
+      <div id="cards" class="cards grid" aria-live="polite"></div>
+
+      <div class="pager">
+        <button class="btn btn-outline" id="prevPage" type="button">← Prev</button>
+        <div class="pager-meta" id="pageMeta">Page 1</div>
+        <button class="btn btn-outline" id="nextPage" type="button">Next →</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Details Modal ===== -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"></div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="modal-kicker" id="modalFaculty">Faculty</div>
+          <h2 class="modal-title" id="modalTitle">Program Title</h2>
+        </div>
+        <button class="icon-btn" id="modalClose" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        
+      </div>
+
+      <div class="modal-foot">
+        <a class="btn btn-outline" href="eligibility.html">Check Eligibility</a>
+        <a class="btn btn-primary" href="assistant.html">Ask Assistant</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">Daffodil Admission Assistant</div>
+      </div>
+      <div class="footer-right">© 2026 • Developed by Jabid & Mahima</div>
+    </div>
+  </footer>
+
+  <script src="programs.js"></script>
+</body>
+</html>
