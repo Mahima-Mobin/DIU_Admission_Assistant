@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eligibility Checker • Daffodil Admission Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="eligibility.css">
+</head>
+<body>
+
+<header class="header">
+  <a class="brand" href="index.html">
+    <img src="assets/diu-logo.png" alt="DIU Logo" class="logo">
+  </a>
+</header>
+
+<main class="container">
+
+  <section class="eligibility-card">
+    <h1>Check Your Eligibility</h1>
+    <p>Fill your results and interests to see recommended programs.</p>
+
+    <form id="eligForm">
+      <div class="form-group">
+        <label for="ssc">SSC GPA</label>
+        <input type="number" step="0.01" min="0" max="5" id="ssc" required placeholder="e.g. 4.8">
+      </div>
+
+      <div class="form-group">
+        <label for="hsc">HSC GPA</label>
+        <input type="number" step="0.01" min="0" max="5" id="hsc" required placeholder="e.g. 4.6">
+      </div>
+
+      <div class="form-group">
+        <label for="background">Background</label>
+        <select id="background" required>
+          <option value="" disabled selected>Select your background</option>
+          <option value="science">Science</option>
+          <option value="commerce">Commerce</option>
+          <option value="arts">Arts</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="interest">Interest</label>
+        <select id="interest" required>
+          <option value="" disabled selected>Select your interest</option>
+          <option value="problem_solving">Problem Solving</option>
+          <option value="management">Management</option>
+          <option value="communication">Communication</option>
+          <option value="drawing">Drawing / Creative</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary">Check Eligibility</button>
+    </form>
+  </section>
+
+  <section id="result" class="result-section">
+    <!-- Recommended programs will appear here -->
+  </section>
+
+</main>
+
+<footer class="footer">
+  © 2026 • Developed by Jabid & Mahima
+</footer>
+
+<script src="eligibility.js"></script>
+</body>
+</html>
