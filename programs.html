@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Programs & Fees • Daffodil Admission Assistant</title>
+  <title>Programs & Fees</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +31,7 @@
     <div class="container header-inner">
 
       <a class="brand" href="index.html" aria-label="Home">
-       
-        <img class="brand-logo" src="assets/diu-logo.png" alt="Daffodil Logo">
+        <img class="brand-logo" src="assets/images/diu-logo.png" alt="Daffodil Logo">
         <div class="brand-text">
           <div class="brand-title">Daffodil Admission Assistant</div>
           <div class="brand-subtitle">Programs & Fees</div>
@@ -54,17 +53,8 @@
         </ul>
       </nav>
 
-      <div class="actions" id="authButtons">
-       
-      </div>
+      <div class="actions" id="authButtons"></div>
 
-    </div>
-
-    <div class="searchbar" id="searchbar">
-      <div class="container searchbar-inner">
-        <input id="globalSearch" type="text" placeholder="Search programs, faculty, keywords..." />
-        <button class="btn btn-dark" id="searchClose" type="button">Close</button>
-      </div>
     </div>
   </header>
 
@@ -73,20 +63,16 @@
     <div class="container page-hero-inner">
       <div>
         <h1>Explore Programs & Fees</h1>
-        <p>
-          Search DIU programs by faculty, level, duration, and tuition range.
-          Compare quickly and open details in one click.
-        </p>
+        
       </div>
 
       <div class="hero-actions">
-        <button class="btn btn-outline" id="openSearch" type="button">🔍 Quick Search</button>
-        <button class="btn btn-primary" id="resetBtn" type="button">Reset Filters</button>
+        <button class="btn btn-outline" id="resetBtn" type="button">Reset</button>
       </div>
     </div>
   </section>
 
-  <!-- ===== Controls ===== -->
+  <!-- ===== Filters ===== -->
   <main class="container">
     <section class="panel">
       <div class="panel-head">
@@ -114,26 +100,6 @@
             <option value="Undergraduate">Undergraduate</option>
             <option value="Graduate">Graduate</option>
           </select>
-        </div>
-
-        <div class="control">
-          <label for="sort">Sort</label>
-          <select id="sort">
-            <option value="recommended">Recommended</option>
-            <option value="fee_low">Tuition (Low → High)</option>
-            <option value="fee_high">Tuition (High → Low)</option>
-            <option value="duration_low">Duration (Low → High)</option>
-            <option value="name_az">Name (A → Z)</option>
-          </select>
-        </div>
-
-        <div class="control range">
-          <div class="range-top">
-            <label for="feeMax">Max Tuition</label>
-            <span class="pill" id="feeLabel">Any</span>
-          </div>
-          <input id="feeMax" type="range" min="0" max="782,250" step="10000" value="782,250" />
-          <div class="range-hint">Slide to limit programs by total tuition estimate.</div>
         </div>
       </div>
     </section>
@@ -171,14 +137,11 @@
         <button class="icon-btn" id="modalClose" type="button" aria-label="Close">✕</button>
       </div>
 
-      <div class="modal-body" id="modalBody">
-        
-      </div>
+      <div class="modal-body" id="modalBody"></div>
 
       <div class="modal-foot">
         <a class="btn btn-outline" href="eligibility.html">Check Eligibility</a>
-        <a class="btn btn-primary" href="assistant.html">Ask Assistant</a>
-      </div>
+            </div>
     </div>
   </div>
 
@@ -186,6 +149,7 @@
     <div class="container footer-inner">
       <div>
         <div class="footer-title">Daffodil Admission Assistant</div>
+        
       </div>
       <div class="footer-right">© 2026 • Developed by Jabid & Mahima</div>
     </div>
