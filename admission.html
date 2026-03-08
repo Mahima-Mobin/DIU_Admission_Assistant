@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admission Process</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="admission.css" />
+</head>
+<body>
+
+  
+
+  <!-- ===== Header ===== -->
+  <header class="header no-print" id="header">
+    <div class="container header-inner">
+
+      <a class="brand" href="index.html" aria-label="Home">
+        <img class="brand-logo"
+       src="assets/diu-logo.png"
+       alt="Daffodil Logo">
+        <div class="brand-text">
+          <div class="brand-title">Daffodil Admission Assistant</div>
+          <div class="brand-subtitle">Admission Process</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="programs.html">Programs</a></li>
+          <li><a class="nav-link" href="eligibility.html">Eligibility</a></li>
+          <li><a class="nav-link active" href="admission.html">Admission</a></li>
+          <li><a class="nav-link" href="assistant.html">Assistant</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions" id="authButtons"></div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div>
+        <h1>Admission Process (Step-by-Step)</h1>
+        
+      </div>
+
+      <div class="hero-actions no-print">
+       
+        <a class="btn btn-primary" href="assistant.html">Ask Assistant</a>
+      
+    </div>
+  </section>
+
+  <main class="container main">
+    <section class="layout">
+
+      <!-- ===== Left: Timeline ===== -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <div class="kicker">Guide</div>
+            <h2>Admission Timeline</h2>
+          </div>
+          <div class="pill" id="timelineMeta">0% completed</div>
+        </div>
+
+        <ol class="timeline" id="timeline">
+          <!-- JS renders steps -->
+        </ol>
+      </section>
+
+      <!-- ===== Right: Checklist + CTA ===== -->
+      <aside class="side">
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <div class="kicker">Prepare</div>
+              <h2>Required Documents</h2>
+            </div>
+            <div class="pill" id="checkMeta">0 / 0</div>
+          </div>
+
+          <div class="checklist" id="checklist">
+            <!-- JS renders checklist -->
+          </div>
+
+          <div class="cta no-print">
+            <a class="btn btn-outline" href="eligibility.html">Check Eligibility</a>
+            <a class="btn btn-primary" href="programs.html">Browse Programs</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <div class="kicker">Tips</div>
+              <h2>Important Notes</h2>
+            </div>
+          </div>
+
+          <ul class="notes">
+            <li>Always verify final requirements from official DIU admission notices.</li>
+            <li>Keep scanned copies ready (PDF/JPG) for online submission.</li>
+            <li>Ensure all marksheets & certificates match your official name.</li>
+            <li>For Diploma/A-Level, program-wise rules may vary.</li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- ===== Full: FAQ ===== -->
+      <section class="card full">
+        <div class="card-head">
+          <div>
+            <div class="kicker">Help</div>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="pill">Quick Answers</div>
+        </div>
+
+        <div class="faq" id="faq">
+          <!-- JS renders FAQ -->
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <footer class="footer no-print">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">Daffodil Admission Assistant</div>
+      </div>
+      <div class="footer-right">© 2026 • Developed by Jabid & Mahima</div>
+    </div>
+  </footer>
+
+  <script src="admission.js"></script>
+</body>
+</html>
