@@ -1,23 +1,16 @@
 body{
   font-family: 'Poppins', sans-serif;
-  margin:0; padding:0;
-  background:#0b3a63;
-  color:#222;
+  margin:0; 
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
 }
 
-.container{
+.elig-container{
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
-
-.header{
-  background:white;
-  display:flex;
-  align-items:center;  
-}
-
-
 
 .logo{
   width:150px;

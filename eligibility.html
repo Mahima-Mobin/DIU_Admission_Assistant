@@ -6,14 +6,42 @@
 <title>Eligibility Checker • Daffodil Admission Assistant</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="eligibility.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- <header class="header">
-  <a class="brand" href="index.html">
-    <img src="assets/diu-logo.png" alt="DIU Logo" class="logo">
-  </a>
-</header> -->
+<header class="header" id="header">
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html" aria-label="Home">
+      <img class="brand-logo"
+       src="assets/diu-logo.png"
+       alt="Daffodil Logo">
+      <div class="brand-text">
+        <div class="brand-title">Daffodil Admission Assistant</div>
+        <div class="brand-subtitle">Eligibility Checker</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="programs.html">Programs</a></li>
+        <li><a class="nav-link active" href="eligibility.html">Eligibility</a></li>
+        <li><a class="nav-link" href="admission.html">Admission</a></li>
+        <li><a class="nav-link" href="assistant.html">Assistant</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="actions" id="authButtons"></div>
+
+  </div>
+</header>
 
 <main class="container">
 
@@ -68,5 +96,13 @@
 </footer>
 
 <script src="eligibility.js"></script>
+<script>
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+</script>
 </body>
 </html>
