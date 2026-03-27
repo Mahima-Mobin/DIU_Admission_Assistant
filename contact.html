@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact • Daffodil Admission Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+
+<header class="header" id="header">
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/diu-logo.png" alt="Logo">
+      <div class="brand-text">
+        <div class="brand-title">Daffodil Admission Assistant</div>
+        <div class="brand-subtitle">Contact</div>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <button class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="programs.html">Programs</a></li>
+        <li><a class="nav-link" href="eligibility.html">Eligibility</a></li>
+        <li><a class="nav-link" href="admission.html">Admission</a></li>
+        <li><a class="nav-link" href="assistant.html">Assistant</a></li>
+        <li><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="actions"></div>
+
+  </div>
+</header>
+<main class="container">
+
+  <section class="contact-card">
+    <h1>Contact Us</h1>
+    <p>Have questions? Send us a message.</p>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" required placeholder="Your name">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" required placeholder="Your email">
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="5" required placeholder="Write your message..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+  </section>
+
+</main>
+
+
+
+<footer class="footer">
+  
+    <div class="social-section">
+  <h3>Connect With Us</h3>
+
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+  </div>
+</div>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-title">Daffodil Admission Assistant</div>
+    </div>
+    <div class="footer-right">© 2026 • Developed by Jabid & Mahima</div>
+  </div>
+</footer>
+
+<script>
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+</script>
+
+</body>
+</html>
