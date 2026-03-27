@@ -3,29 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Programs & Fees</title>
+  <title>Daffodil Admission Assistant</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="stylesheet" href="programs.css" />
+  <link rel="stylesheet" href="assistant.css" />
 </head>
 <body>
 
-  
+
+
   <!-- ===== Header ===== -->
   <header class="header" id="header">
     <div class="container header-inner">
 
       <a class="brand" href="index.html" aria-label="Home">
+
         <img class="brand-logo"
        src="assets/diu-logo.png"
        alt="Daffodil Logo">
+
         <div class="brand-text">
           <div class="brand-title">Daffodil Admission Assistant</div>
-          <div class="brand-subtitle">Programs & Fees</div>
+          <div class="brand-subtitle">Ask Assistant</div>
         </div>
       </a>
 
@@ -36,109 +39,117 @@
 
         <ul class="nav-links" id="navLinks">
           <li><a class="nav-link" href="index.html">Home</a></li>
-          <li><a class="nav-link active" href="programs.html">Programs</a></li>
+          <li><a class="nav-link" href="programs.html">Programs</a></li>
           <li><a class="nav-link" href="eligibility.html">Eligibility</a></li>
           <li><a class="nav-link" href="admission.html">Admission</a></li>
-          <li><a class="nav-link" href="assistant.html">Assistant</a></li>
+          <li><a class="nav-link active" href="assistant.html">Assistant</a></li>
           <li><a class="nav-link" href="contact.html">Contact</a></li>
-          
         </ul>
       </nav>
 
       <div class="actions" id="authButtons"></div>
       <a href="apply.html" class="btn btn-primary">Apply Now</a>
-
     </div>
   </header>
 
-  <!-- ===== Page Hero ===== -->
+  <!-- ===== Hero ===== -->
   <section class="page-hero">
     <div class="container page-hero-inner">
       <div>
-        <h1>Explore Programs & Fees</h1>
+        <h1>Virtual Admission Assistant</h1>
+        <p>
+          Ask about admission process, eligibility, programs & fees, documents, and more.
+        </p>
         
       </div>
 
       <div class="hero-actions">
-        <button class="btn btn-outline" id="resetBtn" type="button">Reset</button>
+        <button id="clearBtn" class="btn btn-outline">
+        Clear
+        </button>
+        <a class="btn btn-primary" href="programs.html">Browse Programs</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== Filters ===== -->
-  <main class="container">
-    <section class="panel">
-      <div class="panel-head">
-        <div class="panel-title">Filters</div>
-        <div class="panel-sub" id="resultMeta">Loading…</div>
-      </div>
+  <main class="container main">
 
-      <div class="controls">
-        <div class="control">
-          <label for="q">Search</label>
-          <input id="q" type="text" placeholder="e.g. CSE, BBA, Engineering, Data…" autocomplete="off" />
+    <section class="chat-layout">
+
+      <!-- Left: Chat -->
+      <section class="chat-card">
+        <div class="chat-head">
+          <div>
+            <div class="kicker">Assistant</div>
+            <div class="chat-title">DIU Admission Helpdesk</div>
+           
+          </div>
+        
+        <div class="chat-body" id="chatBody" aria-live="polite" aria-label="Chat messages">
+        <!-- messages render here -->
+        </div>
+        <div class="chat-tools">
+        </div>
         </div>
 
-        <div class="control">
-          <label for="faculty">Faculty</label>
-          <select id="faculty">
-            <option value="all">All</option>
-          </select>
-        </div>
 
-        <div class="control">
-          <label for="level">Level</label>
-          <select id="level">
-            <option value="all">All</option>
-            <option value="Undergraduate">Undergraduate</option>
-            <option value="Graduate">Graduate</option>
-          </select>
-        </div>
-      </div>
+        <form class="chat-input" id="chatForm" autocomplete="off">
+          <input id="msg" type="text" placeholder="Type your question (e.g., 'CSE tuition', 'Admission steps')" />
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </section>
+
+      <!-- Right: FAQ / Suggestions -->
+      <aside class="side">
+        <section class="side-card">
+          <div class="side-head">
+            <div>
+              <div class="kicker">Suggestions</div>
+              <h2>Popular Questions</h2>
+            </div>
+          </div>
+
+          <div class="suggestions" id="suggestions">
+
+          <button class="chip" data-text="What are the admission steps?">
+          What are the admission steps?
+          </button>
+
+          <button class="chip" data-text="How to check eligibility using SSC and HSC GPA?">
+          How to check eligibility with SSC & HSC GPA?
+          </button>
+
+          <button class="chip" data-text="What documents are required for admission?">
+          What documents are required for admission?
+          </button>
+
+          </div>
+
+          
+        </section>
+
+        <section class="side-card">
+          <div class="side-head">
+            <div>
+              <div class="kicker">Quick Links</div>
+              <h2>Useful Pages</h2>
+            </div>
+          </div>
+
+          <div class="links">
+            <a class="link" href="programs.html">Programs & Fees →</a>
+            <a class="link" href="eligibility.html">Eligibility Checker →</a>
+            <a class="link" href="admission.html">Admission Process →</a>
+            <a class="link" href="contact.html">Contact / Help Desk →</a>
+          </div>
+        </section>
+      </aside>
+
     </section>
 
-    <!-- ===== Results ===== -->
-    <section class="results">
-      <div class="results-head">
-        <div class="results-title">Programs</div>
-        <div class="results-tools">
-          <button class="icon-btn" id="viewGrid" type="button" aria-label="Grid view">☷</button>
-          <button class="icon-btn" id="viewList" type="button" aria-label="List view">≡</button>
-        </div>
-      </div>
-
-      <div id="cards" class="cards grid" aria-live="polite"></div>
-
-      <div class="pager">
-        <button class="btn btn-outline" id="prevPage" type="button">← Prev</button>
-        <div class="pager-meta" id="pageMeta">Page 1</div>
-        <button class="btn btn-outline" id="nextPage" type="button">Next →</button>
-      </div>
-    </section>
   </main>
 
-  <!-- ===== Details Modal ===== -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"></div>
-
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
-    <div class="modal-card">
-      <div class="modal-head">
-        <div>
-          <div class="modal-kicker" id="modalFaculty">Faculty</div>
-          <h2 class="modal-title" id="modalTitle">Program Title</h2>
-        </div>
-        <button class="icon-btn" id="modalClose" type="button" aria-label="Close">✕</button>
-      </div>
-
-      <div class="modal-body" id="modalBody"></div>
-
-      <div class="modal-foot">
-        <a class="btn btn-outline" href="eligibility.html">Check Eligibility</a>
-            </div>
-    </div>
-  </div>
-
-  <footer class="site-footer">
+ <footer class="site-footer">
 
 <div class="footer-container">
 
@@ -212,10 +223,7 @@
 </div>
 
 </footer>
-
   <script src="program-data.js"></script>
-  <script src="programs.js"></script>
-  
-
+  <script src="assistant.js"></script>
 </body>
 </html>

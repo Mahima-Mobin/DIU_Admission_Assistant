@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apply Now | Daffodil Admission</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="apply.css">
+</head>
+
+<body>
+
+<header class="page-header">
+<h1>Apply for Admission</h1>
+<p>Complete the application form to apply for your desired program.</p>
+</header>
+
+<section class="container">
+
+<form id="applyForm" class="apply-form">
+
+<h2>Personal Information</h2>
+
+<div class="grid">
+
+<input type="text" placeholder="Full Name" id="name" required>
+
+<input type="email" placeholder="Email Address" id="email" required>
+
+<input type="tel" placeholder="Phone Number" id="phone" required>
+
+<input type="date" id="dob" name="dob" placeholder="Date of Birth" required>
+
+</div>
+
+<h2>Academic Information</h2>
+
+<div class="grid">
+
+<select id="background" required>
+<option value="">Educational Background</option>
+<option>Science</option>
+<option>Business</option>
+<option>Humanities</option>
+<option>Diploma</option>
+<option>A Level</option>
+</select>
+
+<input type="number" step="0.01" placeholder="SSC GPA" id="ssc" required>
+
+<input type="number" step="0.01" placeholder="HSC GPA" id="hsc" required>
+
+</div>
+
+<h2>Program Selection</h2>
+
+<select id="program" required>
+
+<option value="">Select Program</option>
+
+<option>CSE</option>
+<option>SWE</option>
+<option>EEE</option>
+<option>BBA</option>
+<option>MBA</option>
+<option>LAW</option>
+<option>English</option>
+
+</select>
+
+<h2>Upload Documents</h2>
+
+<div class="grid">
+
+<label>
+SSC Certificate
+<input type="file" required>
+</label>
+
+<label>
+HSC Certificate
+<input type="file" required>
+</label>
+
+<label>
+Recent Photo
+<input type="file" required>
+</label>
+
+</div>
+
+<button class="submit-btn">Submit Application</button>
+
+</form>
+
+<div id="successBox" class="success-box">
+
+<h2>Application Submitted Successfully 🎉</h2>
+
+<p>Your admission application has been received.</p>
+
+<p>Our admission team will contact you soon.</p>
+
+</div>
+
+</section>
+
+<script src="apply.js"></script>
+
+</body>
+</html>
