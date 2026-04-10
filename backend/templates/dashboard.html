@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f9;margin:0}
+    .top{background:#0b5ed7;color:#fff;padding:20px}
+    .container{max-width:1000px;margin:24px auto;padding:20px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+    .grid{display:flex;gap:16px;flex-wrap:wrap}
+    .card{flex:1 1 200px;padding:16px;border:1px solid #eef2f7;border-radius:6px;background:#fff}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div style="max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <img src="/assets/diu-logo.png" alt="logo" style="height:36px;vertical-align:middle;margin-right:8px">
+        <strong>DIU Admission Assistant</strong>
+      </div>
+      <div>
+        <a href="/logout" style="color:#fff;text-decoration:none">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Welcome, {{ user.name }}</h2>
+    <p>Quick overview</p>
+    <div class="grid">
+      <div class="card">
+        <h4>Applications</h4>
+        <p>Pending: 2</p>
+      </div>
+      <div class="card">
+        <h4>Messages</h4>
+        <p>New: 1</p>
+      </div>
+      <div class="card">
+        <h4>Tasks</h4>
+        <p>To review: 3</p>
+      </div>
+    </div>
+    <h3 style="margin-top:20px">Quick Links</h3>
+    <div class="grid" style="margin-top:12px">
+      <a class="card" href="/programs.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+        <h4>Programs</h4>
+        <p>Browse programs & fees</p>
+      </a>
+      <a class="card" href="/eligibility.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+        <h4>Eligibility</h4>
+        <p>Check eligibility quickly</p>
+      </a>
+      <a class="card" href="/admission.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+        <h4>Admission</h4>
+        <p>Admission process & steps</p>
+      </a>
+      <a class="card" href="/assistant.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+        <h4>Assistant</h4>
+        <p>Ask the admission assistant</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

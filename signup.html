@@ -2,36 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp</title>
-    <link rel="stylesheet" href="signup.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SignUp</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="signup.css">
+        <link rel="icon" href="assets/diu-logo.png">
 </head>
 <body>
+    <!-- include global header -->
+    <!-- copied header from index.html to keep consistent site design -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="assets/diu-logo.png" alt="Daffodil Logo">
+                <div class="brand-text">
+                    <div class="brand-title">Daffodil Admission Assistant</div>
+                    <div class="brand-subtitle">Smart Support Portal</div>
+                </div>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a class="nav-link" href="contact.html">About</a></li>
+                    <li><a class="nav-link" href="apply.html">Apply</a></li>
+                </ul>
+            </nav>
+            <div class="actions">
+                <a href="login.html" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
 
     <div class="parent">
-        <h1>Create Account</h1>
-        <form action="">
-            
-            <h2>Sign Up</h2><br>
-            <p>Create your account in under a minute.</p><br>
-            <label for="fname">Full Name</label><br>
-            <input type="text" name="fname" id="fname" placeholder="Enter Your Fullname" required> <br><br>
-            <label for="email">Email</label><br>
-            <input type="text" name="email" id="email" placeholder="Enter Your Email" required> <br><br>
-            <label for="password">Password</label><br>
-            <input type="password" name="password" id="password" placeholder="Enter Password" required><br><br>
-            <label for="confirm-password">Confirm Password</label><br>
-            <input type="password" name="confirm-password" id="confirm-password" placeholder="Re-type Password" required><br><br>
-
-            <input type="checkbox" required>
-            I agree to the Terms & Privacy <br>
-            <br>
-            <input class="btn-signup" type="submit" value="Sign Up"><br><br>
-            Already have an account?&nbsp;&nbsp;
-            <a class="login-link" href="login.html"><strong>Log in</strong> </a><br><br>
+        <form id="signup-form">
+            <h1>Create Account</h1>
+            <h2>Sign Up</h2>
+            <p>Create your account in under a minute.</p>
+            <label for="fname">Full Name</label>
+            <input type="text" name="fname" id="fname" placeholder="Enter Your Fullname" required>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" placeholder="Enter Your Email" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter Password" required>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Re-type Password" required>
+            <label style="display:flex;align-items:center;gap:8px;margin-top:8px;"><input type="checkbox" required> I agree to the Terms & Privacy</label>
+            <input class="btn-signup" type="submit" value="Sign Up">
+            <div style="margin-top:8px">Already have an account? <a class="login-link" href="login.html"><strong>Log in</strong></a></div>
         </form>
-        <script src="programs.js"></script>
     </div>
+
+    <script src="programs.js"></script>
+    <script src="auth.js"></script>
 
     
 

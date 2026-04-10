@@ -2,40 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="login.css">
+        <link rel="icon" href="assets/diu-logo.png">
 </head>
 <body>
 
-    <div class="parent">
-      
-        <form action="">
-            <img src="assets/diu-logo.png" alt="DIU Logo" width="150px">
-            <h2>Login</h2><br>
-            <p>Use your email and password to continue.</p><br>
-            <label for="email">Email</label><br>
-            <input type="text" name="email" id="email" placeholder="Enter Your Email" required> <br><br>
-            <label for="password">Password</label><br>
-            <input type="password" name="password" id="password" placeholder="Enter Password" required><br><br>
-            <div  class="forgot-pass">
-                <label class="remember">
-                    <input type="checkbox" required>
-                    <span>Remember me</span>
-                </label>
-                <a href="#"><strong class="frgt">Forgot password?</strong> </a><br>
+    <!-- include global header -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="assets/diu-logo.png" alt="Daffodil Logo">
+                <div class="brand-text">
+                    <div class="brand-title">Daffodil Admission Assistant</div>
+                    <div class="brand-subtitle">Smart Support Portal</div>
+                </div>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+                <ul class="nav-links" id="navLinks">
+                    <!-- <li><a class="nav-link" href="contact.html">About</a></li> -->
+                    <!-- <li><a class="nav-link" href="apply.html">Apply</a></li> -->
+                </ul>
+            </nav>
+            <div class="actions">
+                <a href="login.html" class="btn btn-outline">Login</a>
             </div>
-            <br>
-            <input class="btn-login" type="submit" value="Log in"><br><br>
-            Don't have an account?&nbsp;&nbsp;
-            <a class="signup-link" href="signup.html"><strong>Create one</strong> </a><br><br>
-        </form>
+        </div>
+    </header>
 
+    <div class="parent">
+        <form id="login-form">
+            <img src="assets/diu-logo.png" alt="DIU Logo" width="150px">
+            <h2>Login</h2>
+            <p>Use your email and password to continue.</p>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" placeholder="Enter Your Email" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter Password" required>
+            <div class="forgot-pass">
+                <label class="remember"><input type="checkbox" required><span>Remember me</span></label>
+                <a href="#"><strong class="frgt">Forgot password?</strong></a>
+            </div>
+            <input class="btn-login" type="submit" value="Log in">
+            <div style="margin-top:8px">Don't have an account? <a class="signup-link" href="signup.html"><strong>Create one</strong></a></div>
+        </form>
     </div>
 
-    
-
     <script src="programs.js"></script>
-    
+    <script src="auth.js"></script>
 </body>
 </html>

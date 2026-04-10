@@ -547,3 +547,27 @@ justify-content:center;
 }
 
 }
+.result-box{
+margin-top:20px;
+padding:18px;
+border-radius:12px;
+background:#f8fbff;
+border:1px solid #dbeafe;
+}
+
+.result-box h3{
+color:#1b66c9;
+margin-bottom:10px;
+}
+
+.result-box p{
+margin:6px 0;
+font-size:14px;
+}
+
+.note{
+margin-top:12px;
+font-size:13px;
+color:#555;
+font-style:italic;
+}

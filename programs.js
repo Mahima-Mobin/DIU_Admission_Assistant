@@ -257,23 +257,25 @@ function initTheme(){
 function renderAuthButtons(){
   const container = els.authButtons;
   if(!container) return;
-
   const userRaw = localStorage.getItem("daa_user");
+  const authOnlyEls = document.querySelectorAll('.auth-only');
   if(userRaw){
     const u = JSON.parse(userRaw);
     container.innerHTML = `
       <span class="user-pill" title="${escapeHtml(u.email || "")}">👋 ${escapeHtml(u.name || "User")}</span>
       <button class="btn btn-outline" id="logoutBtn" type="button">Logout</button>
     `;
-    container.querySelector("#logoutBtn")?.addEventListener("click", ()=>{
+    authOnlyEls.forEach(el=>el.style.display='inline-block');
+    container.querySelector("#logoutBtn")?.addEventListener("click", async ()=>{
+      try{ await fetch('/logout'); }catch(e){}
       localStorage.removeItem("daa_user");
       window.location.reload();
     });
   }else{
     container.innerHTML = `
       <a class="btn btn-outline" href="login.html">Login</a>
-      
     `;
+    authOnlyEls.forEach(el=>el.style.display='none');
   }
 }
 
@@ -370,3 +372,74 @@ function init(){
 }
 
 init();
+
+function calculateWaiver(tuition){
+
+let ssc = parseFloat(document.getElementById("ssc").value);
+let hsc = parseFloat(document.getElementById("hsc").value);
+let golden = document.getElementById("golden").value;
+let gender = document.getElementById("gender").value;
+let sibling = document.getElementById("sibling").checked;
+let freedom = document.getElementById("freedom").checked;
+
+let registration = 192000;
+let waiver = 0;
+
+if(freedom){
+waiver = 100;
+}
+else if(ssc==5 && hsc==5 && golden=="both"){
+waiver = 75;
+}
+else if(ssc==5 && hsc==5 && golden=="one"){
+waiver = 50;
+}
+else if(ssc==5 && hsc==5){
+waiver = 35;
+}
+else if(ssc>=4 && hsc==5){
+waiver = 25;
+}
+else if(gender=="female" || sibling){
+waiver = 20;
+}
+else{
+waiver = 10;
+}
+
+let discount = tuition * waiver / 100;
+let remainingTuition = tuition - discount;
+
+let totalFee = tuition + registration;
+let totalPayable = remainingTuition + registration;
+
+let note;
+
+if(waiver==75 || waiver==100){
+note = "Note: To keep this waiver you must maintain SGPA 3.75 every semester.";
+}
+else{
+note = "Note: To keep this waiver you must maintain SGPA 3.25 every semester.";
+}
+
+document.getElementById("waiverResult").innerHTML = `
+
+<div class="result-box">
+
+<h3>Congratulations! You are getting ${waiver}% waiver 🎉</h3>
+
+<p><strong>Total Fee:</strong> ${totalFee.toLocaleString()} BDT</p>
+
+<p><strong>Registration:</strong> 192,000 BDT (Fixed)</p>
+
+<p><strong>Remaining Tuition:</strong> ${remainingTuition.toLocaleString()} BDT (After applying waiver)</p>
+
+<p><strong>Total Payable:</strong> ${totalPayable.toLocaleString()} BDT</p>
+
+<p class="note">${note}</p>
+
+</div>
+
+`;
+
+}
