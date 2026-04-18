@@ -217,6 +217,49 @@ function openModal(id){
     </div>
   `;
 
+  // Append a per-program waiver calculator (tuition portion = program.tuition - registration(192000))
+  const waiverHtml = `
+    <hr style="margin:18px 0">
+    <div class="waiver-calculator">
+      <h3>Scholarship / Waiver Calculator</h3>
+      <div class="waiver-grid">
+        <div class="form-group">
+          <label>SSC GPA</label>
+          <input type="number" id="ssc" step="0.01" max="5">
+        </div>
+        <div class="form-group">
+          <label>HSC GPA</label>
+          <input type="number" id="hsc" step="0.01" max="5">
+        </div>
+        <div class="form-group">
+          <label>Golden GPA</label>
+          <select id="golden">
+            <option value="none">None</option>
+            <option value="one">One Golden</option>
+            <option value="both">Both Golden</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <label class="check">
+        <input type="checkbox" id="sibling"> Sibling currently studying in DIU
+      </label>
+      <label class="check">
+        <input type="checkbox" id="freedom"> Freedom Fighter Quota
+      </label>
+      <button class="btn btn-primary" id="calcWaiverBtn" onclick="calculateWaiver(${p.tuition - 192000})">Calculate Waiver</button>
+      <div id="waiverResult"></div>
+    </div>
+  `;
+
+  els.modalBody.insertAdjacentHTML('beforeend', waiverHtml);
+
   els.modalBackdrop.style.display = "block";
   els.modal.style.display = "grid";
   els.modal.setAttribute("aria-hidden","false");

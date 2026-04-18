@@ -5,62 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard</title>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f9;margin:0}
-    .top{background:#0b5ed7;color:#fff;padding:20px}
-    .container{max-width:1000px;margin:24px auto;padding:20px;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-    .grid{display:flex;gap:16px;flex-wrap:wrap}
-    .card{flex:1 1 200px;padding:16px;border:1px solid #eef2f7;border-radius:6px;background:#fff}
+    :root{--bg:#f4f6f9;--primary:#0b5ed7;--muted:#6b7280;--card:#fff;--glass:rgba(11,58,99,0.06)}
+    *{box-sizing:border-box}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);margin:0;color:#0f172a}
+
+    .top{background:var(--primary);color:#fff;padding:14px 0}
+    .top .wrap{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 16px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:36px}
+    .nav a{color:#fff;text-decoration:none;padding:8px 10px;border-radius:6px;font-weight:600}
+    .nav a:hover{background:rgba(255,255,255,0.06)}
+
+    .container{max-width:1000px;margin:22px auto;display:grid;grid-template-columns:1fr 300px;gap:18px;padding:0 12px}
+    .card{background:var(--card);border-radius:10px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.06);border:1px solid #eef2f7}
+
+    h2{margin:0 0 8px 0}
+    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .field{background:#fbfdff;padding:10px;border-radius:8px;border:1px solid #eef2f7}
+    .label{color:var(--muted);font-size:13px}
+    .value{font-weight:700;margin-top:6px}
+
+    .status{display:inline-block;padding:6px 10px;border-radius:18px;font-weight:700;font-size:13px}
+    .status.submitted{background:#fff7ed;color:#975a16;border:1px solid #fee7c3}
+    .status.under-review{background:#eef8ff;color:#0b5ed7;border:1px solid #dbeffd}
+    .status.accepted{background:#ecfdf5;color:#166534;border:1px solid #bbf7d0}
+    .status.rejected{background:#fff1f2;color:#9f1239;border:1px solid #fecaca}
+
+    .btn{display:inline-block;padding:9px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+    .btn.primary{background:var(--primary);color:#fff}
+    .muted{color:var(--muted);font-size:14px}
+
+    @media (max-width:920px){.container{grid-template-columns:1fr}.summary-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="top">
-    <div style="max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <img src="/assets/diu-logo.png" alt="logo" style="height:36px;vertical-align:middle;margin-right:8px">
-        <strong>DIU Admission Assistant</strong>
+    <div class="wrap">
+      <div class="brand">
+        <img src="/assets/diu-logo.png" alt="logo">
+        <div><strong>DIU Admission Assistant</strong></div>
       </div>
-      <div>
-        <a href="/logout" style="color:#fff;text-decoration:none">Logout</a>
+      <div style="display:flex;align-items:center;gap:14px">
+        <nav class="nav">
+          <a href="/programs.html">Programs</a>
+          <a href="/eligibility.html">Eligibility</a>
+          <a href="/admission.html">Admission</a>
+          <a href="/assistant.html">Assistant</a>
+        </nav>
+        <a href="/logout" style="color:#fff;text-decoration:none;font-weight:700">Logout</a>
       </div>
     </div>
   </div>
 
   <div class="container">
-    <h2>Welcome, {{ user.name }}</h2>
-    <p>Quick overview</p>
-    <div class="grid">
+    <main>
       <div class="card">
-        <h4>Applications</h4>
-        <p>Pending: 2</p>
+        <h2>Application Summary</h2>
+        {% if application %}
+        <div class="summary-grid">
+          <div class="field">
+            <div class="label">Application ID</div>
+            <div class="value">{{ application.id }}</div>
+          </div>
+          <div class="field">
+            <div class="label">Program</div>
+            <div class="value">{{ application.program_name }}</div>
+          </div>
+          <div class="field">
+            <div class="label">Submitted</div>
+            <div class="value">{{ application.submitted_at }}</div>
+          </div>
+          <div class="field">
+            <div class="label">Status</div>
+            <div class="value">
+              {% if application.status == 'submitted' %}
+                <span class="status submitted">Submitted</span>
+              {% elif application.status == 'under_review' %}
+                <span class="status under-review">Under review</span>
+              {% elif application.status == 'accepted' %}
+                <span class="status accepted">Accepted</span>
+              {% elif application.status == 'rejected' %}
+                <span class="status rejected">Rejected</span>
+              {% else %}
+                <span class="status">{{ application.status }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <a href="/application/{{ application.id }}" class="btn primary">View Application</a>
+          {% if application.payment_required and application.payment_status != 'completed' %}
+            <a href="/payment/{{ application.id }}" class="btn" style="margin-left:8px;background:#fff;border:1px solid #eef2f7">Pay Now</a>
+          {% endif %}
+        </div>
+
+        {% else %}
+        <p class="muted">You have not submitted an application yet.</p>
+        <p style="margin-top:12px"><a href="/programs.html" class="btn primary">Apply Now</a></p>
+        {% endif %}
       </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3 style="margin:0 0 10px 0">What happens next</h3>
+        <ul style="margin:0;padding-left:18px;color:var(--muted)">
+          <li>We will review your application and notify you by email.</li>
+          <li>Check this dashboard for status updates.</li>
+          <li>If payment is required, complete it to process faster.</li>
+        </ul>
+      </div>
+    </main>
+
+    <aside>
       <div class="card">
-        <h4>Messages</h4>
-        <p>New: 1</p>
+        <h3 style="margin:0 0 10px 0">Recent messages</h3>
+        <p class="muted">No new messages.</p>
       </div>
-      <div class="card">
-        <h4>Tasks</h4>
-        <p>To review: 3</p>
+
+      <div class="card" style="margin-top:12px">
+        <h3 style="margin:0 0 10px 0">Important dates</h3>
+        <p class="muted">Application deadline: --</p>
       </div>
-    </div>
-    <h3 style="margin-top:20px">Quick Links</h3>
-    <div class="grid" style="margin-top:12px">
-      <a class="card" href="/programs.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
-        <h4>Programs</h4>
-        <p>Browse programs & fees</p>
-      </a>
-      <a class="card" href="/eligibility.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
-        <h4>Eligibility</h4>
-        <p>Check eligibility quickly</p>
-      </a>
-      <a class="card" href="/admission.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
-        <h4>Admission</h4>
-        <p>Admission process & steps</p>
-      </a>
-      <a class="card" href="/assistant.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
-        <h4>Assistant</h4>
-        <p>Ask the admission assistant</p>
-      </a>
-    </div>
+    </aside>
   </div>
 </body>
 </html>

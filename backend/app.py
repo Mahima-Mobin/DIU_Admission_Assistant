@@ -90,7 +90,7 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
-    return redirect('/')
+    return redirect('index.html')
 
 
 def init_db():
