@@ -312,7 +312,7 @@ function renderAuthButtons(){
     container.querySelector("#logoutBtn")?.addEventListener("click", async ()=>{
       try{ await fetch('/logout'); }catch(e){}
       localStorage.removeItem("daa_user");
-      window.location.reload();
+      window.location.href = 'index.html';
     });
   }else{
     container.innerHTML = `
